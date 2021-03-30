@@ -1,7 +1,7 @@
 import React from 'react';//enables JSX to work
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import List from "./List.js"
 
 
 function Welcome()
@@ -10,8 +10,12 @@ function Welcome()
     return(
         <div>
             <h1>
-                To
+                To-Do List
             </h1>
+
+            <List />
+
+
         </div>
     )//we can return JSX elements by wrapping them up in () and div
 }
