@@ -4,17 +4,52 @@ import './index.css';
 import List from "./List.js"
 
 
+
+
+function Header()
+{
+    let timeOfDay;
+    const date = new Date();
+    const hours = date.getHours();
+
+    if(hours < 12)
+    {
+        timeOfDay = "Morning";
+    }
+    else if (hours > 12 && hours < 17)
+    {
+        timeOfDay = "Afternoon";
+    }
+    else
+    {
+        timeOfDay = "Evening";
+    }
+
+    return(
+        <header className= "Header">
+            <h1>
+                To-Do List
+            </h1>
+            <h2>
+                Good {timeOfDay}, Yash
+            </h2>
+        </header>
+    )
+}
+
+
+
+
 function Welcome()
 {
 
     return(
         <div>
-            <h1>
-                To-Do List
-            </h1>
 
-            <List />
-
+            <Header/>
+            <List task = "Brush Teeth"/>
+            <List task = "Buy Milk"/>
+            <List task = "Clean Windows"/>
 
         </div>
     )//we can return JSX elements by wrapping them up in () and div
