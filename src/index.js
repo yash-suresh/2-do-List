@@ -41,15 +41,18 @@ function Header()
 
 
 
-function Welcome()
+/*function Welcome()
 {
 
     const TaskList = Items.map(thing => <List task = {thing.task} item = {thing.item}
                                               completed = {thing.completed}/>);
 
-    /*if we want to map items like we've done here,we use the '.map()' function,
+    /!*if we want to map items like we've done here,we use the '.map()' function,
     theFileweWanttoMap.map(nameTheObjectWeMatching => JSXelementWeMappingToWantToMapItTo)
-    We assign this to a constant var*/
+    We assign this to a constant var*!/
+
+    //Problem is, since we are passing it as props, these properties are immutable.
+    
 
 
     return(
@@ -61,6 +64,27 @@ function Welcome()
         </div>
     )//we can return JSX elements by wrapping them up in () and div
     //the above is how we pass props, allowing us to reuse the same template, with different properties
+}*/
+
+class Welcome extends React.Component
+{
+
+
+    render()
+    {
+        const TaskList = Items.map(thing => <List task = {thing.task} item = {thing.item}
+                                                  completed = {thing.completed}/>);
+        return(
+
+            <div>
+                <Header/>
+                {TaskList};
+            </div>
+
+        )
+
+
+    }
 }
 
 
@@ -71,5 +95,7 @@ ReactDOM.render(
     //root is default 'hoster', anything we want to host needs to be on here
     //ReactDOM.render(What do I want to render, where do i want to render it)
 );
+
+
 
 //JSX is a pseudo code which allows us to implement HTML elements in JS
