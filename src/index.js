@@ -2,6 +2,7 @@ import React from 'react';//enables JSX to work
 import ReactDOM from 'react-dom';
 import './index.css';
 import List from "./List.js"
+import Items from "./ToDoistItems.js"
 
 
 
@@ -43,16 +44,23 @@ function Header()
 function Welcome()
 {
 
+    const TaskList = Items.map(thing => <List task = {thing.task} item = {thing.item}
+                                              completed = {thing.completed}/>);
+
+    /*if we want to map items like we've done here,we use the '.map()' function,
+    theFileweWanttoMap.map(nameTheObjectWeMatching => JSXelementWeMappingToWantToMapItTo)
+    We assign this to a constant var*/
+
+
     return(
         <div>
 
             <Header/>
-            <List task = "Brush Teeth"/>
-            <List task = "Buy Milk"/>
-            <List task = "Clean Windows"/>
+            {TaskList};
 
         </div>
     )//we can return JSX elements by wrapping them up in () and div
+    //the above is how we pass props, allowing us to reuse the same template, with different properties
 }
 
 
