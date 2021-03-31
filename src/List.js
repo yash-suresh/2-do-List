@@ -19,6 +19,14 @@ import React from 'react';
 
 class List extends React.Component
 {
+    constructor(props)
+    {
+        super(props)
+
+        this.state = {
+            name:"Yash" };
+    }
+
     render()
     {
         return (
@@ -26,6 +34,7 @@ class List extends React.Component
                 <input type="checkbox" checked={this.props.completed}/>
                 <p>{this.props.task}</p>
                 <p style={{display: !this.props.item && "none"}}> Use a {this.props.item}</p>
+                <p> {this.state.name}</p>
             </div>
         )
     }
@@ -40,3 +49,5 @@ export default List;
 //We just need to remember to add 'this' before props.
 /*also, the return() statement, comes inside the render() method. We can create functionality inside
 other methods outside render(), and call them inside the latter*/
+
+//Props are immutable
