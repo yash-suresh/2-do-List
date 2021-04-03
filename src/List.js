@@ -24,29 +24,41 @@ class List extends React.Component
         super(props)
 
         this.state = {
-            name:"Yash" };
+            name:"Yash",
+            isChecked: false};
+
+        this.toggleChange = this.toggleChange.bind(this);
+    }
+
+    toggleChange()
+    {
+        this.setState(
+            {
+                isChecked: !this.state.isChecked,
+            }
+        )
     }
 
     render()
     {
         return (
             <div className="List">
-                <input type="checkbox" checked={this.props.completed}/>
+                <input type="checkbox" defaultChecked={this.isChecked} onChange={this.toggleChange}/>
                 <p>{this.props.task}</p>
                 <p style={{display: !this.props.item && "none"}}> Use a {this.props.item}</p>
                 <p> {this.state.name}</p>
             </div>
         )
     }
-
+    /*on line 46, the default 'check' status is false, but we then call the function
+    which inverts the check status. This allows us to change the state.
+        */
 }
-
-
 
 export default List;
 
 //we can use either 'class based' or 'functional' components.
-//We just need to remember to add 'this' before props.
+//We just need to remember to add 'this' before props, using 'class'
 /*also, the return() statement, comes inside the render() method. We can create functionality inside
 other methods outside render(), and call them inside the latter*/
 

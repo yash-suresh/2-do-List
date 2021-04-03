@@ -5,7 +5,7 @@ const Items =
             id: 1,
             task: "Clean up Room",
             item: "Broom",
-            completed:true
+            completed:false
         },
         {
             id: 2,
