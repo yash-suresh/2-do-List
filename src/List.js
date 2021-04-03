@@ -24,7 +24,6 @@ class List extends React.Component
         super(props)
 
         this.state = {
-            name:"Yash",
             isChecked: false};
 
         this.toggleChange = this.toggleChange.bind(this);
@@ -46,7 +45,6 @@ class List extends React.Component
                 <input type="checkbox" className= "CheckBox" defaultChecked={this.isChecked} onChange={this.toggleChange}/>
                 <p>{this.props.task}</p>
                 <p style={{display: !this.props.item && "none"}}> Use a {this.props.item}</p>
-                <p> {this.state.name}</p>
             </div>
         )
     }
@@ -62,4 +60,4 @@ export default List;
 /*also, the return() statement, comes inside the render() method. We can create functionality inside
 other methods outside render(), and call them inside the latter*/
 
-//Props are immutable
+//Props are immutable, which is why we use state.

@@ -79,10 +79,7 @@ class Welcome extends React.Component
                 <Header/>
                 {TaskList};
             </div>
-
         )
-
-
     }
 }
 
