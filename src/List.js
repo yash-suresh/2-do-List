@@ -29,6 +29,10 @@ class List extends React.Component
         this.toggleChange = this.toggleChange.bind(this);
     }
 
+
+
+
+
     toggleChange()
     {
         this.setState(
@@ -40,15 +44,23 @@ class List extends React.Component
 
     render()
     {
+
+        const completedStyle =
+        {
+            fontStyle: "italic",
+            color: "#cdcdcd",
+            textDecoration: "line-through"
+        }
+
         return (
             <div className="List">
                 <input type="checkbox" className= "CheckBox" defaultChecked={this.isChecked} onChange={this.toggleChange}/>
-                <p>{this.props.task}</p>
-                <p style={{display: !this.props.item && "none"}}> Use a {this.props.item}</p>
+                <p style={this.isChecked ? completedStyle: null}>{this.props.task}</p>
+
             </div>
         )
     }
-    /*on line 46, the default 'check' status is false, but we then call the function
+    /*on line 40, the default 'check' status is false, but we then call the function
     which inverts the check status. This allows us to change the state.
         */
 }
