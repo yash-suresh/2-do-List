@@ -43,7 +43,7 @@ class List extends React.Component
     {
         return (
             <div className="List">
-                <input type="checkbox" defaultChecked={this.props.completed} onChange={this.toggleChange}/>
+                <input type="checkbox" className= "CheckBox" defaultChecked={this.isChecked} onChange={this.toggleChange}/>
                 <p>{this.props.task}</p>
                 <p style={{display: !this.props.item && "none"}}> Use a {this.props.item}</p>
                 <p> {this.state.name}</p>

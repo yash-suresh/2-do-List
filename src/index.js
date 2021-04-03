@@ -72,8 +72,7 @@ class Welcome extends React.Component
 
     render()
     {
-        const TaskList = Items.map(individualItem => <List task = {individualItem.task} item = {individualItem.item}
-                                                  completed = {individualItem.completed}/>);
+        const TaskList = Items.map(individualItem => <List task = {individualItem.task}/>);
         return(
 
             <div>
