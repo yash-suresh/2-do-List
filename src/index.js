@@ -68,20 +68,44 @@ function Header()
 
 class Welcome extends React.Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            isLoading : false,
+            character:{}
+        }
+    }
+
+    componentDidMount()
+    {
+        this.setState({isLoading:true});//'loading' shows up when the data is still being fetched
+        fetch("https://swapi.dev/api/people/1")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({character:data})
+            })
+        this.setState({isLoading:false});
+    }
 
 
     render()
     {
+        const text = this.state.isLoading ? "loading..." : this.state.character.name//this is coniditional rendering
+
         const TaskList = Items.map(individualItem => <List task = {individualItem.task}/>);
         return(
 
             <div>
                 <Header/>
-                {TaskList};
+                {TaskList}
+                {text}
+
             </div>
         )
     }
 }
+
 
 
 //the function render displays everything on the webpage.
